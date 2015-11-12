@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112223012) do
+ActiveRecord::Schema.define(version: 20151112223820) do
 
   create_table "pages", force: :cascade do |t|
     t.integer  "subject_id", limit: 4
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 20151112223012) do
   add_index "pages", ["pemalink"], name: "index_pages_on_pemalink", using: :btree
   add_index "pages", ["subject_id"], name: "index_pages_on_subject_id", using: :btree
 
+  create_table "sections", force: :cascade do |t|
+    t.integer  "page_id",      limit: 4
+    t.string   "name",         limit: 255
+    t.integer  "position",     limit: 4
+    t.boolean  "visible",      limit: 1,     default: false
+    t.string   "content_type", limit: 255
+    t.text     "content",      limit: 65535
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "sections", ["page_id"], name: "index_sections_on_page_id", using: :btree
+
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "position",   limit: 4
@@ -35,4 +48,5 @@ ActiveRecord::Schema.define(version: 20151112223012) do
   end
 
   add_foreign_key "pages", "subjects"
+  add_foreign_key "sections", "pages"
 end
