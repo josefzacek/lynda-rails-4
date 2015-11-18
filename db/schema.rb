@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117211725) do
+ActiveRecord::Schema.define(version: 20151118231938) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "username",        limit: 25
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20151117211725) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
+
+  create_table "admin_users_pages", id: false, force: :cascade do |t|
+    t.integer "admin_user_id", limit: 4
+    t.integer "page_id",       limit: 4
+  end
+
+  add_index "admin_users_pages", ["admin_user_id"], name: "index_admin_users_pages_on_admin_user_id", using: :btree
+  add_index "admin_users_pages", ["page_id"], name: "index_admin_users_pages_on_page_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.integer  "subject_id", limit: 4
