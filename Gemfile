@@ -32,6 +32,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Passenger as the app server
 gem 'passenger'
 
+gem 'slim', '~> 3.0', '>= 3.0.6'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
