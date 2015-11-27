@@ -3,10 +3,12 @@ class SubjectsController < ApplicationController
 
   def index
     @subjects = Subject.sorted
+    @page_title = 'Subjects'
   end
 
   def show
     @subject = Subject.find(params[:id])
+    @page_title = @subject.name
   end
 
   def new
