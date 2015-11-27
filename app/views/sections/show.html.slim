@@ -1,0 +1,29 @@
+= link_to("<< Back to List", {action: 'index'}, class: 'back-link')
+.subjects.show
+  h2 Show Section
+
+  table summary=('Section detail view') 
+    tr
+      th Page ID
+      td = @section.page_id
+    tr
+      th Name
+      td = @section.name 
+    tr
+      th Position
+      td = @section.position 
+    tr
+      th Visible?
+      td = @section.visible ? 'true' : 'false'
+    tr
+      th Content type
+      td = @section.content_type
+    tr
+      th Content
+      td = @section.content
+    tr
+      th Created
+      td = @section.created_at 
+    tr
+      th Updated
+      td = @section.updated_at 
