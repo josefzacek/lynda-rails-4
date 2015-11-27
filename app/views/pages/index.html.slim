@@ -1,0 +1,30 @@
+.subjects.index
+  h2 Pages
+  
+  = link_to("Add New Page", {action: 'new'}, class: 'action new')
+
+  table.listing summary=("Pages list")
+
+    tr.header
+      th Subject ID
+      th Name
+      th Permalink
+      th Position
+      th Sections
+      th Visible
+      th &nbsp;
+      
+
+    - @pages.each do |page|
+      tr
+        td = page.subject_id
+        td = page.name
+        td.center = page.pemalink
+        td = page.position
+        td.center = page.sections.size
+        td.center = page.visible ? 'Yes' : 'No'
+        td.actions
+          = link_to("Show", {action: 'show', id: page.id}, class: 'action show') 
+          = link_to("Edit", {action: 'edit', id: page.id}, class: 'action edit') 
+          = link_to("Delete", {action: 'delete', id: page.id}, class: 'action delete')
+     
