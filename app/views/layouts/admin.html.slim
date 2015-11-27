@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    - if @page_title
+      title = 'Simple CMS - ' + @page_title
+    - else
+      title Simple CMS
+  body
+
+    = render 'layouts/flash_messages'
+
+    h1 Admin layout
+
+    = yield
+    
+  .footer
+    p = link_to 'Created by Josef Zacek', 'http://www.josefzacek.com', target: '_blank'
