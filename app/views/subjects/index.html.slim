@@ -3,6 +3,10 @@
   
   = link_to("Add New Subject", {action: 'new'}, class: 'action new')
 
+  p 
+    | This site contains 
+    strong = pluralize(@subjects.size, 'subject')
+
   table.listing summary=("Subject list")
 
     tr.header
