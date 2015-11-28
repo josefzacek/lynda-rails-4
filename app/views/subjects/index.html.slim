@@ -13,7 +13,7 @@
       th Actions
 
     - @subjects.each do |subject|
-      tr
+      tr class=cycle('odd', 'even')
         td = subject.position
         td = subject.name
         td.center = subject.visible ? 'Yes' : 'No'
