@@ -8,4 +8,7 @@ class DemoController < ApplicationController
 
   def number_helpers
   end
+
+  def date_time_helpers
+  end
 end
