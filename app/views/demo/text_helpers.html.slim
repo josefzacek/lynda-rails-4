@@ -1,0 +1,82 @@
+h1 Text helpers
+
+p = link_to 'ActionView::Helpers::TextHelper', 'http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html', target: '_blank'
+
+hr
+
+p
+  strong If text contains any special character such a line break, it needs to be in double quotes.
+
+h3 @text
+
+= @text
+
+h3 simple_format(@text)
+
+= simple_format(@text)
+
+hr
+
+h3 word wrap
+
+= simple_format(word_wrap(@text, line_width: 20))
+
+hr
+
+h3 truncate
+
+= truncate(@text, length: 20)
+
+hr
+
+h3 excerpt
+
+= excerpt(@text, 'and', radius: 10, omission: '...')
+
+hr
+
+h3 highlight
+
+= highlight(@text, 'sample text')
+
+p ~~~~~
+
+= highlight(@text, ['sample', 'ramble'], highlighter: '<em>\1</em>')
+
+hr
+
+h3 pluralize
+
+= 'student'.pluralize
+
+p ~~~~~
+
+= 'ox'.pluralize
+
+p ~~~~~
+
+= pluralize(2, 'product')
+
+p ~~~~~
+
+- [0,1,2,3].each do |n|
+  = pluralize(n, 'product')
+  br
+  = pluralize(n, 'octopus')
+  br
+  = pluralize(n, 'snipe', 'snope')
+  br
+
+hr
+
+h3 cycle
+- 5.times do 
+  = cycle('red', 'green', 'blue')
+  br
+
+
+
+
+
+
+
