@@ -2,22 +2,9 @@
 p = link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') 
 .subjects.new
   h2 Update Page
-  = form_for(:page, :url => {:action => 'update', id: @page.id}) do |f| 
-    table summary=("Page form fields")
-      tr
-        th Subject ID
-        td = f.text_field(:subject_id)
-      tr
-        th Name
-        td = f.text_field(:name)
-      tr
-        th Permalink
-        td = f.text_field(:pemalink)
-      tr
-        th Position
-        td = f.text_field(:position) 
-      tr
-        th Visible
-        td = f.text_field(:visible) 
+  = form_for(:page, :url => {:action => 'update', id: @page.id}) do |f|
+
+    = render partial: 'form', locals: {f: f}
+ 
     .form-buttons
       p = submit_tag("Update Page") 
