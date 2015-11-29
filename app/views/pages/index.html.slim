@@ -22,7 +22,7 @@
         td.center = page.pemalink
         td = page.position
         td.center = page.sections.size
-        td.center = page.visible ? 'Yes' : 'No'
+        td.center = status_tag(page.visible)
         td.actions
           = link_to("Show", {action: 'show', id: page.id}, class: 'action show') 
           = link_to("Edit", {action: 'edit', id: page.id}, class: 'action edit') 

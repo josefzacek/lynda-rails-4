@@ -18,7 +18,7 @@
         td = section.page_id
         td = section.name
         td = section.position
-        td.center = section.visible ? 'Yes' : 'No'
+        td.center = status_tag(section.visible)
         td = section.content_type
         td.actions
           = link_to("Show", {action: 'show', id: section.id}, class: 'action show') 
