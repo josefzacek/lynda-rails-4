@@ -11,4 +11,7 @@ class DemoController < ApplicationController
 
   def date_time_helpers
   end
+
+  def custom_helpers
+  end
 end
