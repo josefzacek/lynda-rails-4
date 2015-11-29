@@ -34,6 +34,8 @@ gem 'passenger'
 
 gem 'slim', '~> 3.0', '>= 3.0.6'
 
+gem 'font-awesome-rails', '~> 4.5'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
