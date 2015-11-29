@@ -5,15 +5,65 @@ p = link_to 'ActionView::Helpers::DateHelper', 'http://api.rubyonrails.org/class
 p
   strong These methods are available throughout rails and not just in the views 
 
-/ hr
+hr
 
-/ h3 number_to_currency
+p Time.now + 30.days - 23.minutes  <- same as -> 30.days.from_now - 23.minutes
 
-/ = number_to_currency(34.5)
+p = Time.now + 30.days - 23.minutes
 
-/ p ~~~~~
+p = 30.days.from_now - 23.minutes
 
-/ = number_to_currency(34.5, precision: 0, unit: 'kr', format: '%n %u')
+hr
 
-/ hr
+p Time.now.last_year.end_of_month.beginning_of_day
+
+p = Time.now.last_year.end_of_month.beginning_of_day
+
+hr
+
+p
+  strong Ruby DateTime formatting
+
+p datetime.strftime("%B %d, %Y %H:%M")
+
+p = p Time.now.strftime("%B %d, %Y %H:%M")
+
+hr
+
+p
+  strong Rails DateTime formatting
+
+p datetime.to_s(:long)
+
+p = Time.now.to_s(:long)
+
+hr
+
+p
+  strong Rails DateTime custom formatting
+
+p Rails has 6 built-in formats
+
+ul
+  li
+    | :db              
+  li
+    | :number
+  li
+    | :time
+  li
+    | :short
+  li
+    | :long
+  li
+    | :long_ordinal
+
+p config/initializers/date_formats.rb
+
+p Time::DATE_FORMATS[:custom] = "%B %e, %Y at %l:%M %p"
+
+p
+  | [:custom] -> is name of our custom format
+
+hr
 
