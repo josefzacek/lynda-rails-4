@@ -14,4 +14,7 @@ class DemoController < ApplicationController
 
   def custom_helpers
   end
+
+  def sanitize_helpers
+  end
 end
