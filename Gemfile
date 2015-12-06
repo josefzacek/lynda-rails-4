@@ -36,6 +36,8 @@ gem 'slim', '~> 3.0', '>= 3.0.6'
 
 gem 'font-awesome-rails', '~> 4.5'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
