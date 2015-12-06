@@ -2,5 +2,51 @@ h1 Sanitize helpers
 
 p = link_to 'ActionView::Helpers::SanitizeHelper', 'http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html', target: '_blank'
 
+h3 raw()
+
+p Lets unsafe characters in (not safe), text above would show javascript alert box and bold text.
+
+= raw(evil_string)
+
+br
+
+= raw(good_string)
+
 hr
+
+hr
+
+h3 strip_links
+
+p josefzacek.com is wrapped in <a> tag however this function removes link as its name suggest
+
+- simple_string = "<strong>Please</strong> visit <a href='http://josefzacek.com'>josefzacek.com</a>"
+
+p = strip_links(simple_string)
+
+hr
+
+h3 strip_tags
+
+p removes all html tags
+
+- simple_string = "<strong>Please</strong> visit <a href='http://josefzacek.com'>josefzacek.com</a>"
+
+p = strip_tags(simple_string)
+
+hr
+
+h3 sanitize
+
+p strips all tags and attributes that aren't whitelisted.
+
+p = sanitize(simple_string, tags: [])
+
+p = sanitize(simple_string, tags: ['strong', 'a'])
+
+
+
+
+
+
 
