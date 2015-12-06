@@ -2,6 +2,23 @@ h1 Sanitize helpers
 
 p = link_to 'ActionView::Helpers::SanitizeHelper', 'http://api.rubyonrails.org/classes/ActionView/Helpers/SanitizeHelper.html', target: '_blank'
 
+p Rails by default sanitize all text to prevent from SQL injection
+
+hr
+
+- evil_string = "<script>alert('Gotcha');</script>"
+
+- good_string = "<strong>Welcome to my site!</strong>"
+
+= evil_string
+
+br
+
+= good_string
+
+
+hr
+
 h3 raw()
 
 p Lets unsafe characters in (not safe), text above would show javascript alert box and bold text.
