@@ -1,16 +1,16 @@
 table summary=("Page form fields")
       tr
-        th Subject ID
+        th = f.label(:subject_id,'Subject ID')
         td = f.text_field(:subject_id)
       tr
-        th Name
+        th = f.label(:name, 'Page name')
         td = f.text_field(:name)
       tr
-        th Permalink
+        th = f.label(:permalink, 'Permalink')
         td = f.text_field(:pemalink)
       tr
-        th Position
-        td = f.text_field(:position) 
+        th = f.label(:position, 'Position')
+        td = f.number_field(:position) 
       tr
-        th Visible
-        td = f.text_field(:visible)
+        th = f.label(:visible, 'Visible')
+        td = f.check_box(:visible)
