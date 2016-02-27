@@ -18,10 +18,12 @@ html
     = render partial: 'layouts/flash_messages'
 
     = render partial: 'layouts/navigation'
+    
+    .container
 
-    h1 Admin layout
+      h1 Admin layout
 
-    = yield
+      = yield
     
   .footer
     p = link_to 'Created by Josef Zacek', 'http://www.josefzacek.com', target: '_blank'
