@@ -12,6 +12,7 @@ class SectionsController < ApplicationController
   def new
     @section = Section.new
     @pages = Page.order('position ASC')
+    @section_count = Section.count + 1
   end
 
   def create
@@ -21,6 +22,7 @@ class SectionsController < ApplicationController
       redirect_to action: 'show', id: @section.id
     else
       @pages = Page.order('position ASC')
+      @section_count = Section.count + 1
       render 'new'
     end
   end
