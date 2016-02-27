@@ -4,8 +4,8 @@
 
   table summary=('Section detail view') 
     tr
-      th Page ID
-      td = @section.page_id
+      th Page name (Parent)
+      td = @section.page.name if @section.page
     tr
       th Name
       td = @section.name 

@@ -12,6 +12,7 @@
 
 class Subject < ActiveRecord::Base
   has_many :pages
+  validates_presence_of :name
 
   scope :visible, lambda {
     where(visible: true)

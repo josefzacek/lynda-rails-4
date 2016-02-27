@@ -1,13 +1,14 @@
 .subjects.index
   h2 Pages
   
-  = link_to("Add New Page", {action: 'new'}, class: 'action new')
+  p = link_to("Add New Page", {action: 'new'}, class: 'btn btn-primary')
 
-  table.listing summary=("Pages list")
+  table.table.table-striped summary=("Pages list")
 
     tr.header
-      th Subject ID
-      th Name
+      th Page ID
+      th Subject name (Parent)
+      th Page name
       th Permalink
       th Position
       th Sections
@@ -17,14 +18,14 @@
 
     - @pages.each do |page|
       tr
-        td = page.subject_id
+        td = page.id
+        td = page.subject.name if page.subject
         td = page.name
         td.center = page.pemalink
         td = page.position
         td.center = page.sections.size
         td.center = status_tag(page.visible)
-        td.actions
-          = link_to("Show", {action: 'show', id: page.id}, class: 'action show') 
-          = link_to("Edit", {action: 'edit', id: page.id}, class: 'action edit') 
-          = link_to("Delete", {action: 'delete', id: page.id}, class: 'action delete')
-     
+        td.btn-group
+          = link_to('<i class="fa fa-eye"></i>'.html_safe, {action: 'show', id: page.id}, class: 'btn btn-success') 
+          = link_to('<i class="fa fa-pencil"></i>'.html_safe, {action: 'edit', id: page.id}, class: 'btn btn-info') 
+          = link_to('<i class="fa fa-times"></i>'.html_safe, {action: 'delete', id: page.id}, data: {confirm: "Delete #{page.name}?"}, class: 'btn btn-warning')

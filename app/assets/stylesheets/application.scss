@@ -14,3 +14,11 @@
   @import "font-awesome";
   @import "bootstrap-sprockets";
   @import "bootstrap";
+
+  .field_with_errors {
+  color:red;
+  }
+  .field_with_errors input{
+  border: 1px solid;
+  color:red;
+  }
