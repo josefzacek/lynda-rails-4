@@ -13,6 +13,7 @@ class SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new(name: 'Some default name')
+    @subject_count = Subject.count + 1
   end
 
   def create
@@ -21,6 +22,7 @@ class SubjectsController < ApplicationController
       flash[:notice] = "#{@subject.name} successfully created"
       redirect_to action: 'show', id: @subject.id
     else
+      @subject_count = Subject.count + 1
       render 'new'
     end
   end
