@@ -5,6 +5,7 @@
   table summary=('Section detail view') 
     tr
       th Page name (Parent)
+      td = @section.page.name if @section.page
     tr
       th Name
       td = @section.name 
