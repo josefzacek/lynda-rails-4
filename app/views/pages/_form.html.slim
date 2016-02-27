@@ -15,3 +15,4 @@ table summary=("Page form fields")
       tr
         th = f.label(:visible, 'Visible')
         td = f.check_box(:visible)
+    td = f.select(:subject_id, @subjects.map{|s| [s.name, s.id]})
