@@ -1,19 +1,18 @@
 = error_messages_for(@page)
+
 table summary=("Page form fields")
-      tr
-        th = f.label(:subject_id,'Subject ID')
-        td = f.text_field(:subject_id)
-      tr
-        th = f.label(:name, 'Page name')
-        td = f.text_field(:name)
-      tr
-        th = f.label(:permalink, 'Permalink')
-        td = f.text_field(:pemalink)
-      tr
-        th = f.label(:position, 'Position')
-        td = f.number_field(:position) 
-      tr
-        th = f.label(:visible, 'Visible')
-        td = f.check_box(:visible)
+  tr
+    th = f.label(:subject_id,'Subject')
     td = f.select(:subject_id, @subjects.map{|s| [s.name, s.id]})
+  tr
+    th = f.label(:name, 'Page name')
+    td = f.text_field(:name)
+  tr
+    th = f.label(:permalink, 'Permalink')
+    td = f.text_field(:pemalink)
+  tr
+    th = f.label(:position, 'Position')
     td = f.select(:position, 1..@page_count) 
+  tr
+    th = f.label(:visible, 'Visible')
+    td = f.check_box(:visible)
