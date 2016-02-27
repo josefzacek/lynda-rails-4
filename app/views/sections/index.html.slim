@@ -15,7 +15,7 @@
 
     - @sections.each do |section|
       tr
-        td = section.page_id
+        td = section.page.name if section.page
         td = section.name
         td = section.position
         td.center = status_tag(section.visible)
