@@ -28,6 +28,7 @@ class PagesController < ApplicationController
   def edit
     @page = Page.find(params[:id])
     @subjects = Subject.order('position ASC')
+    @page_count = Subject.count
   end
 
   def update
@@ -37,6 +38,7 @@ class PagesController < ApplicationController
       redirect_to action: 'show', id: @page.id
     else
       @subjects = Subject.order('position ASC')
+      @page_count = Subject.count
       render 'edit'
     end
   end
