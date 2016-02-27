@@ -28,6 +28,7 @@ class SectionsController < ApplicationController
   def edit
     @section = Section.find(params[:id])
     @pages = Page.order('position ASC')
+    @section_count = Section.count
   end
 
   def update
@@ -37,6 +38,7 @@ class SectionsController < ApplicationController
       redirect_to action: 'show', id: @section.id
     else
       @pages = Page.order('position ASC')
+      @section_count = Section.count
       render 'edit'
     end
   end
