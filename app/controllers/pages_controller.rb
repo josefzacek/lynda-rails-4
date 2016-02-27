@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   def new
     @page = Page.new(name: 'Some default name')
     @subjects = Subject.order('position ASC')
-    @page_count = Subject.count + 1
+    @page_count = Page.count + 1
   end
 
   def create
@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       redirect_to action: 'show', id: @page.id
     else
       @subjects = Subject.order('position ASC')
-      @page_count = Subject.count + 1
+      @page_count = Page.count + 1
       render 'new'
     end
   end
@@ -30,7 +30,7 @@ class PagesController < ApplicationController
   def edit
     @page = Page.find(params[:id])
     @subjects = Subject.order('position ASC')
-    @page_count = Subject.count
+    @page_count = Page.count
   end
 
   def update
@@ -40,7 +40,7 @@ class PagesController < ApplicationController
       redirect_to action: 'show', id: @page.id
     else
       @subjects = Subject.order('position ASC')
-      @page_count = Subject.count
+      @page_count = Page.count
       render 'edit'
     end
   end
