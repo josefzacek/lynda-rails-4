@@ -19,6 +19,7 @@
     - @pages.each do |page|
       tr
         td = page.id
+        td = page.subject.name if page.subject
         td = page.name
         td.center = page.pemalink
         td = page.position
