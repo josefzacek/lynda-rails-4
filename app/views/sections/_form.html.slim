@@ -23,3 +23,4 @@ table summary=("Section form fields")
       tr
         th = f.label(:content, 'Content')
         td = f.text_area(:content, size: '40x10')
+= error_messages_for(@section)
