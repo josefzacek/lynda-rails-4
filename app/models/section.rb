@@ -21,6 +21,7 @@ class Section < ActiveRecord::Base
   CONTENT_TYPES = %w(text HTML)
 
   validates_presence_of :name
+  validates :name, length: { maximum: 255 }
 
   scope :visible, lambda {
     where(visible: true)
