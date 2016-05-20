@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :confirm_logged_in
   layout 'admin'
 
   def index
