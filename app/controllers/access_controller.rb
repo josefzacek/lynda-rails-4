@@ -4,3 +4,6 @@
   def index
   end
 
+  def login
+  end
+
