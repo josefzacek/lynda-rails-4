@@ -19,6 +19,13 @@ class AdminUser < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   FORBIDDEN_USERNAMES = %w(dublinireland has_manyelloworld superadmin)
+  # shortcut validation
+  validates :email, presence: true,
+                    length: { maximum: 50 },
+                    uniqueness: true,
+                    format: { with: EMAIL_REGEX },
+                    confirmation: true
+
   validate :username_is_allowed
 
   def username_is_allowed
