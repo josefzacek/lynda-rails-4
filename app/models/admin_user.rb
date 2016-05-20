@@ -16,6 +16,8 @@ class AdminUser < ActiveRecord::Base
   has_and_belongs_to_many :pages
   has_many :section_edits
   has_many :sections, through: :section_edits
+
+  EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   FORBIDDEN_USERNAMES = %w(dublinireland has_manyelloworld superadmin)
   validate :no_new_users_on_friday, on: :create
 
