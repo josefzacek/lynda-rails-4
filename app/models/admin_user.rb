@@ -16,4 +16,11 @@ class AdminUser < ActiveRecord::Base
   has_and_belongs_to_many :pages
   has_many :section_edits
   has_many :sections, through: :section_edits
+  validate :no_new_users_on_friday, on: :create
+
+  def no_new_users_on_friday
+    if Time.now.wday == 5
+      errors[:base] << 'No new users on Friday'
+    end
+  end
 end
