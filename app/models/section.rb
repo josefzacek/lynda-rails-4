@@ -22,6 +22,7 @@ class Section < ActiveRecord::Base
 
   validates_presence_of :name
   validates :name, length: { maximum: 255 }
+  validates_presence_of :content
 
   scope :visible, lambda {
     where(visible: true)
