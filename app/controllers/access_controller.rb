@@ -1,3 +1,4 @@
+class AccessController < ApplicationController
   # before_action should call only "private" or "protected" methods
   # before_action must "return false" if you want to halt before_action chain
   before_action :confirm_logged_in, except: [:login, :attempt_login, :logout]
