@@ -19,6 +19,14 @@ class AdminUser < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   FORBIDDEN_USERNAMES = %w(dublinireland has_manyelloworld superadmin)
+  validate :username_is_allowed
+
+  def username_is_allowed
+    if FORBIDDEN_USERNAMES.include?(username)
+      errors.add(:username, 'has been restricted from use.')
+    end
+  end
+
   validate :no_new_users_on_friday, on: :create
 
   def no_new_users_on_friday
