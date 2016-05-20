@@ -8,6 +8,8 @@
 #  hashed_password :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  first_name      :string(255)
+#  last_name       :string(255)
 #
 
 require 'test_helper'
