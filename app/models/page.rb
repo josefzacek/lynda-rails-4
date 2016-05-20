@@ -19,6 +19,7 @@ class Page < ActiveRecord::Base
 
   validates_presence_of :name
   validates_length_of :name, maximum: 255
+  validates_presence_of :pemalink
   validates_length_of :pemalink, within: 3..255
   validates_uniqueness_of :pemalink
 
